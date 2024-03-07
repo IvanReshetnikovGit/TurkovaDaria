@@ -1,0 +1,775 @@
+﻿
+<style>
+    table {
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        margin-right: 30px;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .container select {
+        margin-right: 10px;
+    }
+
+    .buttons {
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+
+    td {
+        width: 35px; 
+        height: 35px; 
+    }
+</style>
+
+<div class="container">
+    <table id="table1" contenteditable="true">
+        <!-- Таблиця 1 - Заповнюється користувачем -->
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    </table>
+
+    <table id="table2" contenteditable="true">
+        <!-- Таблиця 2 - Заповнюється користувачем -->
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    </table>
+
+    <table id="table3" contenteditable="true">
+        <!-- Таблиця 3 - Заповнюється користувачем -->
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    </table>
+
+    <table id="table4">
+        <!-- Таблиця 4 - Для відображення результатів -->
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    </table>
+</div>
+
+<div class="container">
+    <input type="checkbox" id="checkbox1">
+    <input type="checkbox" id="checkbox2">
+    <input type="checkbox" id="checkbox3">
+</div>
+
+<div class="buttons">
+    <button id="fillButton">Порожня</button>
+    <button id="oneButton">Одинична</button>
+    <button id="randomButton">Випадкова</button>
+    <button id="diagonalButton">Діагональна</button>
+    <button id="antiDiagonalButton">Антидіагональна</button>
+    <button id="variantButton">По варіанту</button>
+</div>
+
+<div class="container">
+    <div class="checkbox-container">
+        <select id="selectTable1">
+            <option value="table1">Таблиця 1</option>
+            <option value="table2">Таблиця 2</option>
+            <option value="table3">Таблиця 3</option>
+        </select>
+    </div>
+
+    <div class="checkbox-container">
+        <select id="selectTable2">
+            <option value="table1">Таблиця 1</option>
+            <option value="table2">Таблиця 2</option>
+            <option value="table3">Таблиця 3</option>
+        </select>
+    </div>
+</div>
+
+<div class="container">
+    <div class="checkbox-container">
+        <select id="selectAction">
+            <option value="union">Об'єднати</option>
+            <option value="intersect">Перетин</option>
+            <option value="difference">Різниця</option>
+            <option value="symmetricDifference">Симетрична різниця</option>
+            <option value="complement">Доповнення</option>
+            <option value="inverse">Обернене відношення</option>
+            <option value="compose">Композиція</option>
+            <option value="restrict">Звуження</option>
+        </select>
+    </div>
+
+    <div class="buttons">
+        <button onclick="performAction()">Застосувати</button>
+    </div>
+</div>
+
+<div class="container">
+    <label for="matrixSize">Розмір матриці:</label>
+    <input type="number" id="matrixSize" min="1" value="5">
+    <button onclick="resizeTables()">Змінити розмір</button>
+</div>
+
+<script>
+    function resizeTables() {
+        var newSize = parseInt(document.getElementById("matrixSize").value);
+
+        resizeTable("table1", newSize, newSize);
+        resizeTable("table2", newSize, newSize);
+        resizeTable("table3", newSize, newSize);
+        resizeTable("table4", newSize, newSize);
+    }
+
+    function resizeTable(tableId, rows, cols) {
+        var table = document.getElementById(tableId);
+
+        table.innerHTML = '';
+
+        for (var i = 0; i < rows; i++) {
+            var newRow = table.insertRow();
+            for (var j = 0; j < cols; j++) {
+                var newCell = newRow.insertCell();
+                newCell.innerText = "0";
+            }
+        }
+    }
+
+    function fillEmpty(tableId) {
+        var table = document.getElementById(tableId);
+        var rows = table.rows;
+
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].cells;
+            for (var j = 0; j < cells.length; j++) {
+                cells[j].innerText = "0";
+            }
+        }
+    }
+
+    function fillOnes(tableId) {
+        var table = document.getElementById(tableId);
+        var rows = table.rows;
+
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].cells;
+            for (var j = 0; j < cells.length; j++) {
+                cells[j].innerText = "1";
+            }
+        }
+    }
+
+    function fillRandom(tableId) {
+        var table = document.getElementById(tableId);
+        var rows = table.rows;
+
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].cells;
+            for (var j = 0; j < cells.length; j++) {
+                cells[j].innerText = Math.round(Math.random());
+            }
+        }
+    }
+
+    function fillDiagonal(tableId) {
+        var table = document.getElementById(tableId);
+        var rows = table.rows;
+
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].cells;
+            for (var j = 0; j < cells.length; j++) {
+                if (i === j) {
+                    cells[j].innerText = "1";
+                } else {
+                    cells[j].innerText = "0";
+                }
+            }
+        }
+    }
+
+    function fillAntiDiagonal(tableId) {
+        var table = document.getElementById(tableId);
+        var rows = table.rows;
+        var cols = rows[0].cells.length;
+
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].cells;
+            for (var j = 0; j < cells.length; j++) {
+                if (i === j) {
+                    cells[j].innerText = "0";
+                } else {
+                    cells[j].innerText = "1";
+                }
+            }
+        }
+    }
+
+    function fillVariant() {
+    var table1Values = [
+        [1, 1, 0, 0, 1],
+        [1, 1, 0, 0, 1],
+        [0, 0, 1, 1, 0],
+        [0, 0, 1, 1, 0],
+        [1, 1, 0, 0, 1]
+    ];
+
+    var table2Values = [
+        [0, 0, 0, 0, 0],
+        [0, 1, 0, 1, 0],
+        [0, 1, 0, 1, 1],
+        [0, 0, 0, 0, 0],
+        [1, 0, 1, 0, 1]
+    ];
+
+    var table3Values = [
+        [0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 1],
+        [0, 1, 0, 0, 0]
+    ];
+
+    var table1 = document.getElementById("table1");
+    var table2 = document.getElementById("table2");
+    var table3 = document.getElementById("table3");
+
+    // Заповнюємо таблицю відповідними значеннями
+    for (var i = 0; i < table1Values.length; i++) {
+        var newRow = table1.rows[i];
+        for (var j = 0; j < table1Values[i].length; j++) {
+            var newCell = newRow.cells[j];
+            newCell.innerText = table1Values[i][j];
+        }
+    }
+    for (var i = 0; i < table2Values.length; i++) {
+        var newRow = table2.rows[i];
+        for (var j = 0; j < table2Values[i].length; j++) {
+            var newCell = newRow.cells[j];
+            newCell.innerText = table2Values[i][j];
+        }
+    }
+    for (var i = 0; i < table3Values.length; i++) {
+        var newRow = table3.rows[i];
+        for (var j = 0; j < table3Values[i].length; j++) {
+            var newCell = newRow.cells[j];
+            newCell.innerText = table3Values[i][j];
+        }
+    }
+}
+
+    function performAction() {
+        var selectedAction = document.getElementById("selectAction").value;
+        var selectedTable1 = document.getElementById("selectTable1").value;
+        var selectedTable2 = document.getElementById("selectTable2").value;
+
+        switch (selectedAction) {
+            case "union":
+                unionTables(selectedTable1, selectedTable2);
+                break;
+            case "intersect":
+                intersectTables(selectedTable1, selectedTable2);
+                break;
+            case "difference":
+                differenceTables(selectedTable1, selectedTable2);
+                break;
+            case "symmetricDifference":
+                symmetricDifferenceTables(selectedTable1, selectedTable2);
+                break;
+            case "complement":
+                complementTables(selectedTable1, selectedTable2);
+                break;
+            case "inverse":
+                inverseTables(selectedTable1,selectedTable2);
+                break;
+            case "compose":
+                composeTables(selectedTable1, selectedTable2);
+                break;
+            case "restrict":
+                restrictTables(selectedTable1);
+                break;
+        }
+    }
+
+    function unionTables(tableId1, tableId2) {
+    var table1 = document.getElementById(tableId1);
+    var table2 = document.getElementById(tableId2);
+    var table4 = document.getElementById("table4");
+
+    var result = calculateUnion(table1, table2);
+    fillTableFromResult(table4, result);
+}
+
+function calculateUnion(table1, table2) {
+    var rows1 = table1.rows;
+    var rows2 = table2.rows;
+
+    var result = [];
+
+    for (var i = 0; i < rows1.length; i++) {
+        var cells1 = rows1[i].cells;
+        var cells2 = rows2[i].cells;
+
+        var newRow = [];
+        for (var j = 0; j < cells1.length; j++) {
+            var value1 = parseInt(cells1[j].innerText);
+            var value2 = parseInt(cells2[j].innerText);
+
+            newRow.push(value1 || value2);
+        }
+        result.push(newRow);
+    }
+
+    return result;
+}
+
+// Аналогично создаем остальные функции для других операций
+
+function intersectTables(tableId1, tableId2) {
+    var table1 = document.getElementById(tableId1);
+    var table2 = document.getElementById(tableId2);
+    var table4 = document.getElementById("table4");
+
+    var result = calculateIntersection(table1, table2);
+    fillTableFromResult(table4, result);
+}
+
+function calculateIntersection(table1, table2) {
+    var rows1 = table1.rows;
+    var rows2 = table2.rows;
+
+    var result = [];
+
+    for (var i = 0; i < rows1.length; i++) {
+        var cells1 = rows1[i].cells;
+        var cells2 = rows2[i].cells;
+
+        var newRow = [];
+        for (var j = 0; j < cells1.length; j++) {
+            var value1 = parseInt(cells1[j].innerText);
+            var value2 = parseInt(cells2[j].innerText);
+
+            newRow.push(value1 && value2);
+        }
+        result.push(newRow);
+    }
+
+    return result;
+}
+
+// Повторяем для остальных операций
+
+// Функция для нахождения разницы таблиц
+function differenceTables(tableId1, tableId2) {
+    var table1 = document.getElementById(tableId1);
+    var table2 = document.getElementById(tableId2);
+    var table4 = document.getElementById("table4");
+
+    var result = calculateDifference(table1, table2);
+    fillTableFromResult(table4, result);
+}
+
+function calculateDifference(table1, table2) {
+    var rows1 = table1.rows;
+    var rows2 = table2.rows;
+
+    var result = [];
+
+    for (var i = 0; i < rows1.length; i++) {
+        var cells1 = rows1[i].cells;
+        var cells2 = rows2[i].cells;
+
+        var newRow = [];
+        for (var j = 0; j < cells1.length; j++) {
+            var value1 = parseInt(cells1[j].innerText);
+            var value2 = parseInt(cells2[j].innerText);
+
+            newRow.push(value1 && !value2 ? 1 : 0);
+        }
+        result.push(newRow);
+    }
+
+    return result;
+}
+
+// Аналогично создаем функции для других операций
+
+// Функция для симметричной разницы таблиц
+function symmetricDifferenceTables(tableId1, tableId2) {
+    var table1 = document.getElementById(tableId1);
+    var table2 = document.getElementById(tableId2);
+    var table4 = document.getElementById("table4");
+
+    var result = calculateSymmetricDifference(table1, table2);
+    fillTableFromResult(table4, result);
+}
+
+function calculateSymmetricDifference(table1, table2) {
+    var diff1 = calculateDifference(table1, table2);
+    var diff2 = calculateDifference(table2, table1);
+
+    var result = [];
+
+    for (var i = 0; i < diff1.length; i++) {
+        var newRow = [];
+        for (var j = 0; j < diff1[i].length; j++) {
+            var diff1Value = diff1[i][j];
+            var diff2Value = diff2[i][j];
+
+            newRow.push((!diff1Value && diff2Value) || (diff1Value && !diff2Value) ? 1 : 0);
+        }
+        result.push(newRow);
+    }
+
+    return result;
+}
+
+// ДОПОВНЕННЯ!!!!!!
+function complementTables(tableId1, tableId2) {
+    var table1 = document.getElementById(tableId1);
+    var table2 = document.getElementById(tableId2);
+    var table4 = document.getElementById("table4");
+
+    var result = calculateComplement(table1, table2);
+    fillTableFromResult(table4, result);
+}
+
+function calculateComplement(table1,table2) {
+    var rows1 = table1.rows;
+    var rows2 = table2.rows;
+
+    var result = [];
+
+    for (var i = 0; i < rows1.length; i++) {
+        var newRow = [];
+        for (var j = 0; j < rows2.length; j++) {
+            var cells1 = rows1[i].cells;
+            var cells2 = rows2[j].cells;
+            var sum = 0;
+
+            for (var k = 0; k < cells1.length; k++) {
+                sum += parseInt(cells1[k].innerText) * parseInt(cells2[k].innerText);
+            }
+            newRow.push(sum > 0 ? 0 : 1);
+        }
+        result.push(newRow);
+    }
+
+    return result;
+}
+
+
+// ОБЕРНЕНЕ ВІДНОШЕННЯ
+function inverseTables(tableId1,tableId2) {
+    var table1 = document.getElementById(tableId1);
+    var table4 = document.getElementById("table4");
+
+    var result = calculateInverse(table1);
+    fillTableFromResult(table4, result);
+}
+
+function calculateInverse(table1) {
+    var rows1 = table1.rows;
+    var cols1 = rows1[0].cells.length;
+    var result = [];
+
+    for (var i = 0; i < cols1; i++) {
+        var newRow = [];
+        for (var j = 0; j < rows1.length; j++) {
+            var cellValue = parseInt(rows1[j].cells[i].innerText);
+            newRow.push(cellValue);
+        }
+        result.push(newRow);
+    }
+
+    return result;
+}
+
+
+//КОМПОЗИЦІЯ
+function composeTables(tableId1, tableId2) {
+    var table1 = document.getElementById(tableId1);
+    var table2 = document.getElementById(tableId2);
+    var table4 = document.getElementById("table4");
+
+    var result = calculateComposition(table1, table2);
+    fillTableFromResult(table4, result);
+}
+
+function calculateComposition(table1, table2) {
+    var rows1 = table1.rows;
+    var rows2 = table2.rows;
+
+    var result = [];
+
+    // Итерация по строкам первой таблицы
+    for (var i = 0; i < rows1.length; i++) {
+        var newRow = [];
+        var cells1 = rows1[i].cells;
+
+        // Итерация по строкам второй таблицы
+        for (var j = 0; j < rows2.length; j++) {
+            var cells2 = rows2[j].cells;
+            var sum = 0;
+
+            // Умножение элементов строки на элементы столбца
+            for (var k = 0; k < cells1.length; k++) {
+                for (var l = 0; l < cells2.length; l++) {
+                    sum += parseInt(cells1[k].innerText) * parseInt(cells2[l].innerText);
+                }
+            }
+            newRow.push(sum);
+        }
+        result.push(newRow);
+    }
+
+    return result;
+}
+
+
+   function restrictTables(tableId1) {
+    var table1 = document.getElementById(tableId1);
+    var table4 = document.getElementById("table4");
+
+    var newSize = parseInt(document.getElementById("matrixSize").value);
+
+    var rows1 = table1.rows;
+    var cols1 = rows1[0].cells.length;
+
+    var result = [];
+
+    for (var i = 0; i < newSize; i++) {
+        var newRow = [];
+        for (var j = 0; j < newSize; j++) {
+            var value = 0; 
+            if (i < rows1.length && j < cols1) {
+                var cell = rows1[i].cells[j];
+                value = parseInt(cell.innerText);
+            }
+            newRow.push(value);
+        }
+        result.push(newRow);
+    }
+
+    table4.innerHTML = '';
+
+    for (var i = 0; i < result.length; i++) {
+        var newRow = table4.insertRow();
+        for (var j = 0; j < result[i].length; j++) {
+            var newCell = newRow.insertCell();
+            newCell.innerText = result[i][j];
+        }
+    }
+}
+
+
+
+    function fillTableFromResult(table, result) {
+        for (var i = 0; i < result.length; i++) {
+            var newRow = table.rows[i];
+            for (var j = 0; j < result[i].length; j++) {
+                var newCell = newRow.cells[j];
+                newCell.innerText = result[i][j];
+            }
+        }
+    }
+
+   function attachFunctions() {
+    document.getElementById("fillButton").onclick = function () {
+        var selectedTableId = getSelectedTableId();
+        fillEmpty(selectedTableId);
+    };
+
+    document.getElementById("oneButton").onclick = function () {
+        var selectedTableId = getSelectedTableId();
+        fillOnes(selectedTableId);
+    };
+
+    document.getElementById("randomButton").onclick = function () {
+        var selectedTableId = getSelectedTableId();
+        fillRandom(selectedTableId);
+    };
+
+    document.getElementById("diagonalButton").onclick = function () {
+        var selectedTableId = getSelectedTableId();
+        fillDiagonal(selectedTableId);
+    };
+
+    document.getElementById("antiDiagonalButton").onclick = function () {
+        var selectedTableId = getSelectedTableId();
+        fillAntiDiagonal(selectedTableId);
+    };
+
+    document.getElementById("variantButton").onclick = function () {
+        var selectedTableId = getSelectedTableId();
+        fillVariant(selectedTableId);
+    };
+
+    function getSelectedTableId() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var selectedTableId = "table1"; // По умолчанию первая таблица
+
+        checkboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                selectedTableId = checkbox.id.replace("checkbox", "table");
+            }
+        });
+
+        return selectedTableId;
+    }
+}
+
+attachFunctions();
+var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                checkboxes.forEach(function(otherCheckbox) {
+                    if (otherCheckbox !== checkbox) {
+                        otherCheckbox.checked = false;
+                    }
+                });
+            }
+        });
+    });
+
+</script>
