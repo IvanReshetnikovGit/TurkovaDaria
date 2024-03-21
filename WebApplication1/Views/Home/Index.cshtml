@@ -1,5 +1,4 @@
-﻿
-<style>
+﻿<style>
     table {
         border-collapse: collapse;
         margin-bottom: 20px;
@@ -31,6 +30,15 @@
     td {
         width: 35px; 
         height: 35px; 
+    }
+
+    .container-chk {
+        display: flex;
+        padding-right: 10px; 
+        margin-bottom: 10px;
+    }
+    .container-chk input[type="checkbox"] {
+        margin-right: 300px; 
     }
 </style>
 
@@ -152,7 +160,7 @@
         </tr>
     </table>
 
-    <table id="table4">
+    <table id="table4" style="background-color:rgb(229, 255, 216)">
         <!-- Таблиця 4 - Для відображення результатів -->
         <tr>
             <td>0</td>
@@ -192,7 +200,7 @@
     </table>
 </div>
 
-<div class="container">
+<div class="container-chk">
     <input type="checkbox" id="checkbox1">
     <input type="checkbox" id="checkbox2">
     <input type="checkbox" id="checkbox3">
@@ -236,6 +244,24 @@
             <option value="inverse">Обернене відношення</option>
             <option value="compose">Композиція</option>
             <option value="restrict">Звуження</option>
+            <option value="checkReflexive">Перевірити рефлексивність</option>
+            <option value="checkAntiReflexive">Перевірити антирефлексивність</option>
+            <option value="checkSymmetric">Перевірити симетричність</option>
+            <option value="checkAsymmetric">Перевірити асиметричність</option>
+            <option value="checkAntisymmetric">Перевірити антисиметричність</option>
+            <option value="checkTransitive">Перевірити транзитивнісит</option>
+            <option value="TransitiveClosure">Перевірити транзитивне замикання</option>
+            <option value="checkAcyclic">Перевірити циклічність</option>
+            <option value="checkConnected">Перевірити зв'язність</option>
+            <option value="checkTolerant">Перевірити толерантність</option>
+            <option value="checkEquivalence">Перевірити еквівалентність</option>
+            <option value="checkQuasiOrder">Перевірити квазіпорядок</option>
+            <option value="checkOrder">Перевірити порядкок</option>
+            <option value="computeReachability">Перевіряти доступність</option>
+            <option value="MutualReachability">перевірити мучуал</option>
+            <option value="SymmetricComponent">симетричний компонент</option>
+            <option value="AsymmetricComponent">асим компонент</option>
+
         </select>
     </div>
 
@@ -372,7 +398,7 @@
     var table2 = document.getElementById("table2");
     var table3 = document.getElementById("table3");
 
-    // Заповнюємо таблицю відповідними значеннями
+   
     for (var i = 0; i < table1Values.length; i++) {
         var newRow = table1.rows[i];
         for (var j = 0; j < table1Values[i].length; j++) {
@@ -426,9 +452,63 @@
             case "restrict":
                 restrictTables(selectedTable1);
                 break;
+            case "checkReflexive":
+                checkReflexive(selectedTable1);
+                break;
+            case "checkAntiReflexive":
+                checkAntiReflexive(selectedTable1);
+                break;
+            case "checkSymmetric":
+                checkSymmetric(selectedTable1);
+                break;
+            case "checkAsymmetric":
+                checkAsymmetric(selectedTable1);
+                break;
+            case "checkAntisymmetric":
+                checkAntisymmetric(selectedTable1);
+                break;
+            case "checkTransitive":
+                checkTransitive(selectedTable1);
+                break;
+            case "TransitiveClosure":
+                TransitiveClosure(selectedTable1);
+                break;
+            case "checkAcyclic":
+                checkAcyclic(selectedTable1);
+                break;
+            case "checkConnected":
+                checkConnected(selectedTable1);
+                break;
+            case "checkTolerant":
+                checkTolerant(selectedTable1);
+                break;
+            case "checkEquivalence":
+                checkEquivalence(selectedTable1);
+                break;
+            case "checkQuasiOrder":
+                checkQuasiOrder(selectedTable1);
+                break;
+            case "checkOrder":
+                checkOrder(selectedTable1);
+                break;
+            case "computeReachability":
+                computeReachability(selectedTable1);
+                break;
+            case "MutualReachability":
+                MutualReachability(selectedTable1);
+                break;
+            case "SymmetricComponent":
+                SymmetricComponent(selectedTable1);
+                break;
+            case "AsymmetricComponent":
+                AsymmetricComponent(selectedTable1);
+                break;
         }
     }
 
+    
+    
+   //ОБ'ЄДНАННЯ 
     function unionTables(tableId1, tableId2) {
     var table1 = document.getElementById(tableId1);
     var table2 = document.getElementById(tableId2);
@@ -461,8 +541,7 @@ function calculateUnion(table1, table2) {
     return result;
 }
 
-// Аналогично создаем остальные функции для других операций
-
+// ПЕРЕТИН
 function intersectTables(tableId1, tableId2) {
     var table1 = document.getElementById(tableId1);
     var table2 = document.getElementById(tableId2);
@@ -495,9 +574,9 @@ function calculateIntersection(table1, table2) {
     return result;
 }
 
-// Повторяем для остальных операций
 
-// Функция для нахождения разницы таблиц
+
+//РІЗНИЦЯ
 function differenceTables(tableId1, tableId2) {
     var table1 = document.getElementById(tableId1);
     var table2 = document.getElementById(tableId2);
@@ -530,9 +609,7 @@ function calculateDifference(table1, table2) {
     return result;
 }
 
-// Аналогично создаем функции для других операций
-
-// Функция для симметричной разницы таблиц
+//  СИМЕТРИЧНА РІЗНИЦЯ
 function symmetricDifferenceTables(tableId1, tableId2) {
     var table1 = document.getElementById(tableId1);
     var table2 = document.getElementById(tableId2);
@@ -562,7 +639,7 @@ function calculateSymmetricDifference(table1, table2) {
     return result;
 }
 
-// ДОПОВНЕННЯ!!!!!!
+// ДОПОВНЕННЯ
 function complementTables(tableId1, tableId2) {
     var table1 = document.getElementById(tableId1);
     var table2 = document.getElementById(tableId2);
@@ -572,29 +649,23 @@ function complementTables(tableId1, tableId2) {
     fillTableFromResult(table4, result);
 }
 
-function calculateComplement(table1,table2) {
+function calculateComplement(table1, table2) {
     var rows1 = table1.rows;
-    var rows2 = table2.rows;
-
     var result = [];
 
     for (var i = 0; i < rows1.length; i++) {
         var newRow = [];
-        for (var j = 0; j < rows2.length; j++) {
-            var cells1 = rows1[i].cells;
-            var cells2 = rows2[j].cells;
-            var sum = 0;
-
-            for (var k = 0; k < cells1.length; k++) {
-                sum += parseInt(cells1[k].innerText) * parseInt(cells2[k].innerText);
-            }
-            newRow.push(sum > 0 ? 0 : 1);
+        for (var j = 0; j < rows1[i].cells.length; j++) {
+            var cellValue = parseInt(rows1[i].cells[j].innerText);
+            newRow.push(cellValue === 1 ? 0 : 1);
         }
         result.push(newRow);
     }
 
     return result;
 }
+
+
 
 
 // ОБЕРНЕНЕ ВІДНОШЕННЯ
@@ -630,33 +701,39 @@ function composeTables(tableId1, tableId2) {
     var table2 = document.getElementById(tableId2);
     var table4 = document.getElementById("table4");
 
-    var result = calculateComposition(table1, table2);
+    var table1Array = tableToArray(table1);
+    var table2Array = tableToArray(table2);
+
+    var result = calculateComposition(table1Array, table2Array);
     fillTableFromResult(table4, result);
 }
 
 function calculateComposition(table1, table2) {
-    var rows1 = table1.rows;
-    var rows2 = table2.rows;
+    var result = [];
+    for (var i = 0; i < table1.length; i++) {
+        var newRow = [];
+        for (var j = 0; j < table2[0].length; j++) {
+            var value = 0;
+            for (var k = 0; k < table1[0].length; k++) {
+                value = value || (table1[i][k] && table2[k][j]);
+            }
+            newRow.push(value);
+        }
+        result.push(newRow);
+    }
+    return result;
+}
 
+
+function tableToArray(table) {
+    var rows = table.rows;
     var result = [];
 
-    // Итерация по строкам первой таблицы
-    for (var i = 0; i < rows1.length; i++) {
+    for (var i = 0; i < rows.length; i++) {
         var newRow = [];
-        var cells1 = rows1[i].cells;
-
-        // Итерация по строкам второй таблицы
-        for (var j = 0; j < rows2.length; j++) {
-            var cells2 = rows2[j].cells;
-            var sum = 0;
-
-            // Умножение элементов строки на элементы столбца
-            for (var k = 0; k < cells1.length; k++) {
-                for (var l = 0; l < cells2.length; l++) {
-                    sum += parseInt(cells1[k].innerText) * parseInt(cells2[l].innerText);
-                }
-            }
-            newRow.push(sum);
+        for (var j = 0; j < rows[i].cells.length; j++) {
+            var cellValue = parseInt(rows[i].cells[j].innerText);
+            newRow.push(cellValue);
         }
         result.push(newRow);
     }
@@ -664,7 +741,564 @@ function calculateComposition(table1, table2) {
     return result;
 }
 
+function IsReflexive(matrix) {
+    for (var i = 0; i < matrix.length; i++) {
+        if (matrix[i][i] !== 1) {
+            return false;
+        }
+    }
+    return true;
+}
+function checkReflexive(tableId) {
+    var table = document.getElementById(tableId);
+    var matrix = tableToArray(table);
+    var isReflexive = IsReflexive(matrix);
 
+    var resultMessage = isReflexive ? "Матриця є рефлексивною." : "Матриця не є рефлексивною";
+
+    alert(resultMessage);
+}
+
+function IsAntiReflexive(matrix) {
+    for (var i = 0; i < matrix.length; i++) {
+        if (matrix[i][i] !== 0) {
+            return false;
+        }
+    }
+    return true;
+}
+function checkAntiReflexive(tableId) {
+    var table = document.getElementById(tableId);
+    var matrix = tableToArray(table);
+    var isAntiReflexive = IsAntiReflexive(matrix);
+
+    var resultMessage = isAntiReflexive ? "Матриця є антирефлексивною." : "Матриця не є антирефлексивною.";
+
+    alert(resultMessage);
+}
+
+
+
+
+function IsSymmetric(matrix) {
+    for (var i = 0; i < matrix.length; i++) {
+        for (var j = 0; j < matrix.length; j++) {
+            if (matrix[i][j] !== matrix[j][i]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function checkSymmetric(tableId) {
+    var table = document.getElementById(tableId);
+    var matrix = tableToArray(table);
+    var isSymmetric = IsSymmetric(matrix);
+
+    var resultMessage = isSymmetric ? "Матриця є симетричною." : "Матриця не є симетричною.";
+
+    alert(resultMessage);
+}
+
+
+function IsAsymmetric(matrix) {
+    for (var i = 0; i < matrix.length; i++) {
+        for (var j = 0; j < matrix.length; j++) {
+            if (matrix[i][j] && matrix[j][i]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function checkAsymmetric(tableId) {
+    var table = document.getElementById(tableId);
+    var matrix = tableToArray(table);
+    var isAsymmetric = IsAsymmetric(matrix);
+
+    var resultMessage = isAsymmetric ? "Матриця є асиметричною." : "Матриця не є асиметричною.";
+
+    alert(resultMessage);
+}
+
+function IsAntisymmetric(matrix) {
+    for (var i = 0; i < matrix.length; i++) {
+        for (var j = 0; j < matrix[i].length; j++) {
+            if (i !== j && matrix[i][j] === 1 && matrix[j][i] === 0) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+function checkAntisymmetric(tableId) {
+    var table = document.getElementById(tableId);
+    var matrix = tableToArray(table);
+    var isAntisymmetric = IsAntisymmetric(matrix);
+
+    var resultMessage = isAntisymmetric ? "Матриця є антисиметричною." : "Матриця не є антисиметричною.";
+    alert(resultMessage);
+}
+
+function IsTransitive(matrix) {
+    for (var i = 0; i < matrix.length; i++) {
+        for (var j = 0; j < matrix.length; j++) {
+            for (var k = 0; k < matrix.length; k++) {
+                if (matrix[i][j] && matrix[j][k] && !matrix[i][k]) {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+function checkTransitive(tableId) {
+    var table = document.getElementById(tableId);
+    var matrix = tableToArray(table);
+    var isTransitive = IsTransitive(matrix);
+
+    var resultMessage = isTransitive ? "Матриця є транзитивною." : "Матриця не є транзитивною.";
+
+    alert(resultMessage);
+}
+
+function TransitiveClosure(tableId1) {
+    var table1 = document.getElementById(tableId1);
+    var table4 = document.getElementById("table4");
+
+    var newSize = parseInt(document.getElementById("matrixSize").value);
+
+    var rows1 = table1.rows;
+    var cols1 = rows1[0].cells.length;
+
+    var result = [];
+
+    for (var i = 0; i < newSize; i++) {
+        var newRow = [];
+        for (var j = 0; j < newSize; j++) {
+            var value = 0;
+            if (i < rows1.length && j < cols1) {
+                var cell = rows1[i].cells[j];
+                value = parseInt(cell.innerText);
+            }
+            newRow.push(value);
+        }
+        result.push(newRow);
+    }
+
+    table4.innerHTML = '';
+
+    var changed;
+    do {
+        changed = false;
+        for (var i = 0; i < newSize; i++) {
+            for (var j = 0; j < newSize; j++) {
+                if (result[i][j] === 1) {
+                    for (var k = 0; k < newSize; k++) {
+                        if (result[j][k] === 1 && result[i][k] !== 1) {
+                            result[i][k] = 1;
+                            changed = true;
+                        }
+                    }
+                }
+            }
+        }
+    } while (changed);
+
+    for (var i = 0; i < result.length; i++) {
+        var newRow = table4.insertRow();
+        for (var j = 0; j < result[i].length; j++) {
+            var newCell = newRow.insertCell();
+            newCell.innerText = result[i][j];
+        }
+    }
+}
+
+
+function IsAcyclic(matrix) {
+    for (var i = 0; i < matrix.length; i++) {
+        if (matrix[i][i] === 1) {
+            return false;
+        }
+    }
+
+    for (var k = 0; k < matrix.length; k++) {
+        for (var i = 0; i < matrix.length; i++) {
+            for (var j = 0; j < matrix.length; j++) {
+                if (matrix[i][k] === 1 && matrix[k][j] === 1 && matrix[j][i] === 1) {
+                    return false;
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+function checkAcyclic(tableId) {
+    var table = document.getElementById(tableId);
+    var matrix = tableToArray(table);
+    var isAcyclic = IsAcyclic(matrix);
+
+    var resultMessage = isAcyclic ? "Матриця є ациклічною." : "Матриця не є ациклічною.";
+    alert(resultMessage);
+}
+
+
+function IsConnected(matrix) {
+    var numRows = matrix.length;
+    var numCols = matrix[0].length;
+
+    for (var i = 0; i < numRows; i++) {
+        for (var j = 0; j < numCols; j++) {
+            if (i !== j && matrix[i][j] !== 1 && matrix[j][i] !== 1) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+function checkConnected(tableId) {
+    var table = document.getElementById(tableId);
+    var matrix = tableToArray(table);
+    var isConnected = IsConnected(matrix);
+
+    var resultMessage = isConnected ? "Граф зв'язний." : "Граф не зв'язний.";
+    alert(resultMessage);
+}
+
+
+function IsTolerant(matrix) {
+    if (!IsReflexive(matrix)) {
+        return false;
+    }
+
+    if (!IsSymmetric(matrix)) {
+        return false;
+    }
+
+    return true;
+}
+
+function checkTolerant(tableId) {
+    var table = document.getElementById(tableId);
+    var matrix = tableToArray(table);
+    var isTolerant = IsTolerant(matrix);
+
+    var resultMessage = isTolerant ? "Матриця є толерантною." : "Матриця не є толерантною.";
+    alert(resultMessage);
+}
+
+
+function IsEquivalence(matrix) {
+    if (!IsReflexive(matrix)) {
+        return false;
+    }
+
+    if (!IsSymmetric(matrix)) {
+        return false;
+    }
+
+    if (!IsTransitive(matrix)) {
+        return false;
+    }
+
+    return true;
+}
+
+function checkEquivalence(tableId) {
+    var table = document.getElementById(tableId);
+    var matrix = tableToArray(table);
+    var isEquivalence = IsEquivalence(matrix);
+
+    var resultMessage = isEquivalence ? "Матриця є відношенням еквівалентності." : "Матриця не є відношенням еквівалентності.";
+    alert(resultMessage);
+}
+
+
+
+function IsQuasiOrder(matrix) {
+    if (!IsReflexive(matrix)) {
+        return false;
+    }
+
+    if (!IsTransitive(matrix)) {
+        return false;
+    }
+
+    return true;
+}
+
+function checkQuasiOrder(tableId) {
+    var table = document.getElementById(tableId);
+    var matrix = tableToArray(table);
+    var isQuasiOrder = IsQuasiOrder(matrix);
+
+    var resultMessage = isQuasiOrder ? "Матриця є квазіпорядком." : "Матриця не є квазіпорядком.";
+    alert(resultMessage);
+}
+
+
+
+function IsOrder(matrix) {
+    if (!IsReflexive(matrix)) {
+        return false;
+    }
+
+    if (!IsAntisymmetric(matrix)) {
+        return false;
+    }
+
+    if (!IsTransitive(matrix)) {
+        return false;
+    }
+
+    return true;
+}
+
+function checkOrder(tableId) {
+    var table = document.getElementById(tableId);
+    var matrix = tableToArray(table);
+    var isOrder = IsOrder(matrix);
+
+    var resultMessage = isOrder ? "Матриця є відношенням порядку." : "Матриця не є відношенням порядку.";
+    alert(resultMessage);
+}
+
+function Reachability(matrix1, resultMatrix, newSize) {
+    for (var i = 0; i < newSize; i++) {
+        for (var j = 0; j < newSize; j++) {
+            resultMatrix[i][j] = i < matrix1.length && j < matrix1[0].length ? matrix1[i][j] : 0;
+        }
+    }
+
+    var changed;
+    do {
+        changed = false;
+        for (var k = 0; k < newSize; k++) {
+            for (var i = 0; i < newSize; i++) {
+                for (var j = 0; j < newSize; j++) {
+                    if (resultMatrix[i][k] === 1 && resultMatrix[k][j] === 1 && resultMatrix[i][j] !== 1) {
+                        resultMatrix[i][j] = 1;
+                        changed = true;
+                    }
+                }
+            }
+        }
+    } while (changed);
+
+    return resultMatrix;
+}
+
+function computeReachability(tableId1) {
+    var table1 = document.getElementById(tableId1);
+    var table4 = document.getElementById("table4");
+    var newSize = parseInt(document.getElementById("matrixSize").value);
+
+    var rows1 = table1.rows;
+    var cols1 = rows1[0].cells.length;
+
+    var matrix1 = [];
+
+    for (var i = 0; i < newSize; i++) {
+        var newRow = [];
+        for (var j = 0; j < newSize; j++) {
+            var value = 0;
+            if (i < rows1.length && j < cols1) {
+                var cell = rows1[i].cells[j];
+                value = parseInt(cell.innerText);
+            }
+            newRow.push(value);
+        }
+        matrix1.push(newRow);
+    }
+
+    var resultMatrix = [];
+    for (var i = 0; i < newSize; i++) {
+        resultMatrix.push(Array(newSize).fill(0));
+    }
+
+    resultMatrix = Reachability(matrix1, resultMatrix, newSize);
+
+    table4.innerHTML = '';
+
+    for (var i = 0; i < resultMatrix.length; i++) {
+        var newRow = table4.insertRow();
+        for (var j = 0; j < resultMatrix[i].length; j++) {
+            var newCell = newRow.insertCell();
+            newCell.innerText = resultMatrix[i][j];
+        }
+    }
+}
+
+
+function MutualReachability(tableId1) {
+    var table1 = document.getElementById(tableId1);
+    var table4 = document.getElementById("table4");
+
+    var newSize = parseInt(document.getElementById("matrixSize").value);
+
+    var rows1 = table1.rows;
+    var cols1 = rows1[0].cells.length;
+
+    var reachabilityMatrix = [];
+
+    for (var i = 0; i < newSize; i++) {
+        var newRow = [];
+        for (var j = 0; j < newSize; j++) {
+            var value = 0;
+            if (i < rows1.length && j < cols1) {
+                var cell = rows1[i].cells[j];
+                value = parseInt(cell.innerText);
+            }
+            newRow.push(value);
+        }
+        reachabilityMatrix.push(newRow);
+    }
+
+    for (var k = 0; k < newSize; k++) {
+        for (var i = 0; i < newSize; i++) {
+            for (var j = 0; j < newSize; j++) {
+                if (reachabilityMatrix[i][k] === 1 && reachabilityMatrix[k][j] === 1) {
+                    reachabilityMatrix[i][j] = 1;
+                }
+            }
+        }
+    }
+
+    var transposedReachabilityMatrix = [];
+    for (var i = 0; i < newSize; i++) {
+        var newRow = [];
+        for (var j = 0; j < newSize; j++) {
+            newRow.push(reachabilityMatrix[j][i]);
+        }
+        transposedReachabilityMatrix.push(newRow);
+    }
+
+    var resultMatrix = [];
+    for (var i = 0; i < newSize; i++) {
+        var newRow = [];
+        for (var j = 0; j < newSize; j++) {
+            newRow.push(reachabilityMatrix[i][j] & transposedReachabilityMatrix[i][j]);
+        }
+        resultMatrix.push(newRow);
+    }
+
+    table4.innerHTML = '';
+    for (var i = 0; i < resultMatrix.length; i++) {
+        var newRow = table4.insertRow();
+        for (var j = 0; j < resultMatrix[i].length; j++) {
+            var newCell = newRow.insertCell();
+            newCell.innerText = resultMatrix[i][j];
+        }
+    }
+}
+
+function SymmetricComponent(tableId1) {
+    var table1 = document.getElementById(tableId1);
+    var table4 = document.getElementById("table4");
+
+    var rows1 = table1.rows;
+    var cols1 = rows1[0].cells.length;
+
+    var matrix = [];
+    for (var i = 0; i < rows1.length; i++) {
+        var newRow = [];
+        for (var j = 0; j < cols1; j++) {
+            var cell = rows1[i].cells[j];
+            var value = parseInt(cell.innerText);
+            newRow.push(value);
+        }
+        matrix.push(newRow);
+    }
+
+    var numRows = matrix.length;
+    var numCols = matrix[0].length;
+
+    var transposedMatrix = [];
+    for (var i = 0; i < numCols; i++) {
+        var newRow = [];
+        for (var j = 0; j < numRows; j++) {
+            newRow.push(matrix[j][i]);
+        }
+        transposedMatrix.push(newRow);
+    }
+
+    var resultMatrix = [];
+    for (var i = 0; i < numRows; i++) {
+        var newRow = [];
+        for (var j = 0; j < numCols; j++) {
+            newRow.push(matrix[i][j] & transposedMatrix[i][j]);
+        }
+        resultMatrix.push(newRow);
+    }
+
+    table4.innerHTML = '';
+
+    for (var i = 0; i < resultMatrix.length; i++) {
+        var newRow = table4.insertRow();
+        for (var j = 0; j < resultMatrix[i].length; j++) {
+            var newCell = newRow.insertCell();
+            newCell.innerText = resultMatrix[i][j];
+        }
+    }
+}
+
+
+function AsymmetricComponent(tableId1) {
+    var table1 = document.getElementById(tableId1);
+    var table4 = document.getElementById("table4");
+
+    var numRows = table1.rows.length;
+    var numCols = table1.rows[0].cells.length;
+
+    var result = [];
+
+    for (var i = 0; i < numRows; i++) {
+        var newRow = [];
+        for (var j = 0; j < numCols; j++) {
+            var value = 0;
+            if (i < table1.rows.length && j < numCols) {
+                var cell = table1.rows[i].cells[j];
+                value = parseInt(cell.innerText);
+            }
+            newRow.push(value);
+        }
+        result.push(newRow);
+    }
+
+    var resultMatrix = [];
+
+    for (var i = 0; i < numRows; i++) {
+        var newRow = [];
+        for (var j = 0; j < numCols; j++) {
+            newRow.push((result[i][j] === 1 && result[j][i] === 0) ? 1 : 0);
+        }
+        resultMatrix.push(newRow);
+    }
+
+    table4.innerHTML = '';
+
+    for (var i = 0; i < resultMatrix.length; i++) {
+        var newRow = table4.insertRow();
+        for (var j = 0; j < resultMatrix[i].length; j++) {
+            var newCell = newRow.insertCell();
+            newCell.innerText = resultMatrix[i][j];
+        }
+    }
+}
+
+
+
+
+//ЗВУЖЕННЯ
    function restrictTables(tableId1) {
     var table1 = document.getElementById(tableId1);
     var table4 = document.getElementById("table4");
@@ -699,6 +1333,7 @@ function calculateComposition(table1, table2) {
         }
     }
 }
+
 
 
 
@@ -745,7 +1380,7 @@ function calculateComposition(table1, table2) {
 
     function getSelectedTableId() {
         var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        var selectedTableId = "table1"; // По умолчанию первая таблица
+        var selectedTableId = "table1";
 
         checkboxes.forEach(function(checkbox) {
             if (checkbox.checked) {
